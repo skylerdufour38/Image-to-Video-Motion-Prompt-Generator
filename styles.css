@@ -1,0 +1,257 @@
+:root {
+  --bg: #0b1020;
+  --panel: #141d34;
+  --panel-alt: #1c2746;
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #ecf2ff;
+  --muted: #b1bdd9;
+  --primary: #6ea8fe;
+  --primary-strong: #3d82ff;
+  --success: #7fe7c4;
+  --badge: #14213d;
+  --shadow: 0 24px 80px rgba(11, 16, 32, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(110, 168, 254, 0.18), transparent 35%),
+    linear-gradient(160deg, #090d18, #111a2d 40%, #0c1223 100%);
+  color: var(--text);
+}
+
+.page-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.topbar {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--success);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 28px;
+}
+
+.panel {
+  background: rgba(20, 29, 52, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.form-panel {
+  padding: 28px 22px;
+}
+
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.step {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.step.done {
+  background: rgba(127, 231, 196, 0.12);
+  border-color: rgba(127, 231, 196, 0.5);
+  color: var(--text);
+}
+
+.field-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(10, 15, 28, 0.75);
+  color: var(--text);
+  padding: 12px 14px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+small {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+}
+
+.primary-button,
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.primary-button {
+  width: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  color: #061120;
+  padding: 14px 18px;
+  margin-top: 8px;
+}
+
+.primary-button:hover,
+.download-button:hover {
+  transform: translateY(-1px);
+}
+
+.status {
+  margin-top: 14px;
+  min-height: 22px;
+  color: var(--muted);
+}
+
+.preview-panel {
+  padding: 24px;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.preview-header h2 {
+  margin: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--badge);
+  border: 1px solid var(--line);
+  color: var(--success);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.video-shell {
+  position: relative;
+  background: #090d18;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 540px;
+}
+
+#previewVideo,
+.placeholder {
+  width: 100%;
+  min-height: 540px;
+  display: block;
+}
+
+#previewVideo {
+  background: #060b16;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 1.04rem;
+  padding: 24px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.download-row {
+  margin-top: 18px;
+}
+
+.download-button {
+  padding: 12px 18px;
+  background: rgba(127, 231, 196, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(127, 231, 196, 0.4);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    padding: 20px 14px 36px;
+  }
+
+  .workflow {
+    grid-template-columns: 1fr;
+  }
+
+  .video-shell,
+  #previewVideo,
+  .placeholder {
+    min-height: 360px;
+  }
+}
