@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image-to-Video Motion Prompt Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">AI video workflow prototype</p>
+          <h1>Image-to-Video Motion Prompt Generator</h1>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <div class="workflow">
+            <div class="step done">1. Upload Image</div>
+            <div class="step">2. Upload Audio</div>
+            <div class="step">3. Upload Mask</div>
+            <div class="step">4. Add Motion Prompt</div>
+            <div class="step">5. Select Resolution</div>
+            <div class="step">6. Generate Video</div>
+            <div class="step">7. Preview MP4</div>
+            <div class="step">8. Download MP4</div>
+          </div>
+
+          <div class="field-group">
+            <label for="imageInput">Upload Image</label>
+            <input id="imageInput" type="file" accept="image/*" />
+            <small id="imageName">No image selected</small>
+          </div>
+
+          <div class="field-group">
+            <label for="audioInput">Upload Audio (1 minute)</label>
+            <input id="audioInput" type="file" accept="audio/*" />
+            <small id="audioName">No audio selected</small>
+          </div>
+
+          <div class="field-group">
+            <label for="maskInput">Upload Mask (Optional)</label>
+            <input id="maskInput" type="file" accept="image/*" />
+            <small id="maskName">No mask selected</small>
+          </div>
+
+          <div class="field-group">
+            <label for="promptInput">Enter Motion Prompt</label>
+            <textarea id="promptInput" rows="5" placeholder="Example: Slowly push the camera forward, keep the subject centered, add subtle parallax, cinematic dolly zoom, realistic lighting, natural motion blur."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label for="resolutionSelect">Select Resolution</label>
+            <select id="resolutionSelect">
+              <option value="720p">720p</option>
+              <option value="1080p" selected>1080p</option>
+              <option value="4k">4K</option>
+            </select>
+          </div>
+
+          <button id="generateButton" class="primary-button">Generate Video</button>
+          <p id="status" class="status" aria-live="polite">Ready for a new motion prompt.</p>
+        </section>
+
+        <section class="panel preview-panel">
+          <div class="preview-header">
+            <h2>Screen Preview</h2>
+            <span class="badge">MP4</span>
+          </div>
+
+          <div class="video-shell">
+            <video id="previewVideo" controls playsinline muted></video>
+            <div id="placeholder" class="placeholder">
+              <span>Generated preview appears here</span>
+            </div>
+          </div>
+
+          <div class="download-row">
+            <a id="downloadLink" class="download-button hidden" href="#" download="motion-preview.mp4">Download MP4</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

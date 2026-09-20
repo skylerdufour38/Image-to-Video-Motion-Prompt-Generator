@@ -1,0 +1,12 @@
+{
+  "name": "Image-to-Video Motion Prompt Generator",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Static app preview",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "python3 -m http.server 8000 --directory /workspaces/Image-to-Video-Motion-Prompt-Generator"
+}
